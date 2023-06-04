@@ -1,0 +1,24 @@
+
+
+# Upgrade Insecure Requests via .htaccess or meta tag to prevent mixed content
+
+# Upgrade Insecure Requests
+
+<ifModule mod_headers.c>
+Header always set Content-Security-Policy "upgrade-insecure-requests" "expr=%{CONTENT_TYPE} =~ m#text/html#"
+</IfModule>
+
+# X-XSS protection , X-Content Type Options , Referrer-Policy , X-Frame-Options , HTTP Strict Transport Security
+
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-Content-Type-Options "nosniff"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+  # Header set Content-Security-Policy ...
+  Header set Referrer-Policy "same-origin"
+  Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
+  Header set Permissions-Policy "geolocation=self"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+</IfModule>
