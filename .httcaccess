@@ -22,3 +22,8 @@ Header always set Content-Security-Policy "upgrade-insecure-requests" "expr=%{CO
 Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
 </IfModule>
+
+# RewriteEngine on
+# Redirect www URL to no www URL
+RewriteCond %{HTTP_HOST} ^www.yourwebsite.com [NC]
+RewriteRule ^(.*)$ http://yourwebsite.com/$1 [L,R=301,NC]
