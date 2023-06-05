@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /search/*
+Disallow: */feed/
+Disallow: *?s*
+Disallow: *?*
+Disallow: /rss
+Disallow: *utm_*
+Disallow: /search?q=*
+Disallow: /portfolio/
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
