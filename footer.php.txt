@@ -1,0 +1,43 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ */
+
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly
+
+
+do_action( 'TieLabs/after_main_content' );
+
+
+TIELABS_HELPER::get_template_part( 'templates/footer' );
+
+?>
+
+		</div><!-- #tie-wrapper /-->
+
+		<?php get_sidebar( 'slide' ); ?>
+
+	</div><!-- #tie-container /-->
+</div><!-- .background-overlay /-->
+
+/**
+ * Put hidden URL Link when Copy from your site
+ * در صورت کپی از محتوای سایت شما و پیست در هر محتوایی، لینک صفحه شما بصورت مخفی با متن منتقل می شود
+ */
+
+
+<script type="text/javascript">
+document.addEventListener('copy', function(e) {
+    e.preventDefault();
+    var selectedText = window.getSelection().toString();
+    var copyLink = document.location.href;
+    var copyHtml = "<span style='display:none'>" + copyLink + "</span>" + selectedText;
+    e.clipboardData.setData('text/html', copyHtml);
+    e.clipboardData.setData('text/plain', selectedText);
+    document.getSelection().empty();
+});
+</script>
+
+</body>
+</html>
